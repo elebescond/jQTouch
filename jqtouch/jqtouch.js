@@ -111,7 +111,11 @@
         }
         function clickHandler(e) {
             _debug();
-            
+
+	    // Don't prevent the default click behavior for external links
+	    if($(e.target).isExternalLink()) {
+            	return true;
+            }
             // Prevent the default click behavior for links
             if (e.target.nodeName === 'A') {
                 e.preventDefault();
